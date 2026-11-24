@@ -51,6 +51,8 @@ function drawPixel(imagedata,x,y,color) {
         else if ((x<0) || (y<0) || (x>=imagedata.width) || (y>=imagedata.height))
             throw "drawpixel location outside of image";
         else if (color instanceof Color) {
+            //Converts 2d array into a 1D array
+            //Each pixel is like 4 bytes (red, green, blue, opacity)
             var pixelindex = (y*imagedata.width + x) * 4;
             imagedata.data[pixelindex] = color.r;
             imagedata.data[pixelindex+1] = color.g;
